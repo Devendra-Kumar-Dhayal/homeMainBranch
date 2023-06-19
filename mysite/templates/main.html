@@ -29,12 +29,20 @@
 </head>
 <body>
     {% include 'navbar.html' %}
-   
-    
+
     {% block content %}
 
 
     {% endblock content %}
+<div>
+    <div>
+        {% for i in game %}
+            <a href="/new_page.html/{{i.id}}" target="_blank"> {{i.name}} </a><br>
+        {% endfor %}
+    </div>
+</div>
+    
+
     <!-- user custom java script -->
     <script type="module" src="{% static 'homepage\js\script.js' %}"></script> 
 </body>

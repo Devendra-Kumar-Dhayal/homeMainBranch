@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.home),
-    path('rest/',views.rest)
+    path('new_page.html/<str:pk>',views.rest)
 ]
