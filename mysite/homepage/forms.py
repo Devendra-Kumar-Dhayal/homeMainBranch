@@ -50,7 +50,7 @@ class UserLoginForm(forms.Form):
 
 
 class UserRegisterForm(forms.ModelForm):
-    username=forms.CharField(label='Username',required = True,widget=forms.TextInput(attrs={"placeholder":"Username"}))
+    newuser=forms.CharField(label='Username',required = True,widget=forms.TextInput(attrs={"placeholder":"Username"}))
 
     password1=forms.CharField(widget=forms.PasswordInput(attrs={"placeholder":"Password"}), label='Password',required = True)
     password2=forms.CharField(widget=forms.PasswordInput(attrs={"placeholder":"Confirm Password"}), label='Confirm Password',required = True)
@@ -59,7 +59,7 @@ class UserRegisterForm(forms.ModelForm):
         model=user
         fields=[
           
-            'username',
+            'newuser',
             'password1',
             'password2',
         ]
@@ -68,7 +68,7 @@ class UserRegisterForm(forms.ModelForm):
         for field in form:
             print("Field Error:", field.name,  field.errors)
     def clean(self,*args,**kwargs):
-        username = self.cleaned_data.get('username')
+        newuser = self.cleaned_data.get('newuser')
         password1=self.cleaned_data.get('password1')
         password2=self.cleaned_data.get('password2')
 

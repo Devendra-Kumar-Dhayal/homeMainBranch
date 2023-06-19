@@ -23,8 +23,8 @@ def home(request):
     data = "NOt logged in"
     if request.method == "POST" :
        
-        print("form entry")
-        print(form2.post(request))
+        # print("form entry")
+        # print(form2.post(request))
         if form1.is_valid():
             username = form1.cleaned_data.get('username')
             password = form1.cleaned_data.get('password')
@@ -33,7 +33,8 @@ def home(request):
             data = "logged up"
         elif form2.is_valid():
             user = form2.save(commit=False)
-            
+            username = form2.cleaned_data.get('newuser')
+            user.username=username
             password = form2.cleaned_data.get('password1')
             user.set_password(password)
             user.save()
