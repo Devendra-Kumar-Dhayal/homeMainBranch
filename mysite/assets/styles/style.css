@@ -12,8 +12,8 @@
 /*  Colours */
 :root{
     --body-color: #E4E9F7;
-    --nav-color: #7d2ae8;
-    --side-nav: #7d2ae8;
+    --nav-color: #25225b;
+    --side-nav: #262761;
     --text-color: #FFF;
     --search-bar: #F2F2F2;
     --search-text: #010718;
@@ -22,7 +22,11 @@
 body{
     height: 100vh;
     background-color: var(--body-color);
-}
+    background: rgb(10,7,65);
+    background: linear-gradient(0deg, rgba(10,7,65,1) 0%, rgba(3,3,38,1) 0%, rgba(32,156,223,1) 69%);
+    background-repeat: no-repeat;
+    padding-top: 70px;
+  }
 
 body.dark{
     --body-color: #18191A;
@@ -34,12 +38,20 @@ body.dark{
 
 nav{
     position: fixed;
-    top: 0;
-    left: 0;
+    /* top: 1%; */
+    /* left: 5%; */
+    /* height: 50px; */
+    /* width: 90%; */
+    top:0px;
+    left: 0px;
     height: 70px;
     width: 100%;
     background-color: var(--nav-color);
     z-index: 100;
+    display:block;
+    padding: 10px 10px 10px 10px;
+    border-radius: 4px;
+    
 }
 
 body.dark nav{
@@ -324,14 +336,13 @@ body.dark .button {
 }
 
 /* Home */
-.home {
+/* .home {
   position: relative;
   height: 100vh;
   width: 100%;
-  background-image: url("bg.jpg");
   background-size: cover;
   background-position: center;
-}
+} */
 .home::before {
   content: "";
   position: absolute;
@@ -346,8 +357,10 @@ body.dark .button {
 .home.show::before {
   opacity: 1;
   pointer-events: auto;
-}
-/* From */
+} 
+
+
+/* Form */
 .form_container {
   position: fixed;
   max-width: 320px;
