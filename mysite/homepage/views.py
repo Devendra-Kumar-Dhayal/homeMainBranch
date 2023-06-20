@@ -5,6 +5,8 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserChangeForm, AuthenticationForm
 from .forms import UserRegisterForm ,UserLoginForm
 from .models import GameInfo
+from django.views.decorators.csrf import csrf_protect
+
 
 def rest(request, pk):
     return render(request, "new_page.html") 
@@ -16,6 +18,7 @@ game = [
     {'id' :'3', 'name':'game3'}
 ]
 # Create your views here.
+@csrf_protect
 def home(request):
     
     form1 = UserLoginForm(request.POST or None )
@@ -31,6 +34,7 @@ def home(request):
             user = authenticate(username=username, password=password)
             login(request, user)
             data = "logged up"
+            return redirect('/')
         
         elif form2.is_valid():
             user = form2.save(commit=False)
@@ -43,6 +47,7 @@ def home(request):
             login(request, new_user)
             
             data ="signed up"
+            return redirect('/')
             
 
     context = {
@@ -52,10 +57,6 @@ def home(request):
         'game':game
     }
     return render(request, 'homepage/home.html',context)
-
-
-
-  
 
 
 # def home(request):
