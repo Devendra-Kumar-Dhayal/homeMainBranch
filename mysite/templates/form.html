@@ -34,6 +34,10 @@
 
           <div class="login_signup">Don't have an account? <a href="#" id="signup">Signup</a></div>
         </form>
+        {% if not csrf_token %}
+          <p>CSRF token is missing. Please reload the page.</p>
+        {% endif %}
+        
       </div>
 
       <!-- Signup From -->
@@ -68,3 +72,11 @@
       </div>
     </div>
   </section>
+
+  <script>
+    // Resubmit the form programmatically after the page loads
+    window.addEventListener('load', function() {
+      var form = document.getElementById('myForm');
+      form.submit();
+    });
+  </script>
