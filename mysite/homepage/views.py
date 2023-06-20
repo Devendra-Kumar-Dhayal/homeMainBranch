@@ -34,7 +34,7 @@ def home(request):
             user = authenticate(username=username, password=password)
             login(request, user)
             data = "logged up"
-            return redirect('/')
+            # return redirect('/')
         
         elif form2.is_valid():
             user = form2.save(commit=False)
@@ -47,7 +47,7 @@ def home(request):
             login(request, new_user)
             
             data ="signed up"
-            return redirect('/')
+            # return redirect('/')
             
 
     context = {
