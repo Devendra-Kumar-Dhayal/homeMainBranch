@@ -34,6 +34,7 @@ body.dark{
     --side-nav: #242526;
     --text-color: #CCC;
     --search-bar: #242526;
+    background: #18191A;
 }
 
 nav{
@@ -50,8 +51,6 @@ nav{
     z-index: 100;
     display:block;
     padding: 10px 10px 10px 10px;
-    border-radius: 4px;
-    
 }
 
 body.dark nav{
