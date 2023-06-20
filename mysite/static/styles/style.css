@@ -22,10 +22,8 @@
 body{
     height: 100vh;
     background-color: var(--body-color);
-    background: rgb(10,7,65);
     background: linear-gradient(0deg, rgba(10,7,65,1) 0%, rgba(3,3,38,1) 0%, rgba(32,156,223,1) 69%);
-    background-repeat: no-repeat;
-    padding-top: 70px;
+    background-size: cover;
   }
 
 body.dark{
@@ -34,7 +32,7 @@ body.dark{
     --side-nav: #242526;
     --text-color: #CCC;
     --search-bar: #242526;
-    background: #18191A;
+    background: linear-gradient(0deg, rgb(41, 41, 46) 0%, rgb(0, 0, 0) 0%, rgb(168, 185, 195) 69%);
 }
 
 nav{
@@ -113,8 +111,11 @@ nav .nav-bar .logo a{
     background-color: #359381;
     color: #fff; 
 }
-
-
+.nav-links a:last-child:hover {
+  background-color: initial;
+  color: #fff;
+}
+ 
 .nav-links a::before{
     content: '';
     position: absolute;
@@ -267,7 +268,6 @@ body.dark .form_container input {
 body.dark .button {
   background-color: #242526;
 }
-
 
 
 @media (max-width: 790px) {
