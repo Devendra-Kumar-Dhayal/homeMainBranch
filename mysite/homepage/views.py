@@ -7,6 +7,9 @@ from .forms import UserRegisterForm ,UserLoginForm
 from .models import GameInfo
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.models import User
+from django.urls import reverse_lazy
+from django.contrib.auth.views import PasswordResetView
+from django.contrib.messages.views import SuccessMessageMixin
 
 def username_exists(username):
     return User.objects.filter(username=username).exists()
@@ -91,6 +94,12 @@ def logout_view(request):
     logout(request)
     return redirect('/')
 
-def recoverpassword(request):
-    
-    return render(request,'homepage/recoverpassword.html')
+class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
+    template_name = 'homepage/recoverpassword.html'
+    email_template_name = 'homepage/password_reset_email.html'
+    subject_template_name = 'homepage/password_reset_subject'
+    success_message = "We've emailed you instructions for setting your password, " \
+                      "if an account exists with the email you entered. You should receive them shortly." \
+                      " If you don't receive an email, " \
+                      "please make sure you've entered the address you registered with, and check your spam folder."
+    success_url = reverse_lazy('homepage/home.html')
