@@ -1,82 +1,110 @@
 <section class="home">
-    <div class="form_container">
-      <i class="uil uil-times form_close"></i>
+  <div class="form_container">
+    <i class="uil uil-times form_close"></i>
 
-      <!-- Login From -->
-      <div class="form login_form">
-        <form action='.' method="POST">
-          {% csrf_token %}
-          <h2>Login</h2>
-          <!-- <input type="hidden" value="login" name="formType" /> -->
-          <div class="input_box">
-            <!-- <input type="email" placeholder="Enter your email" name="email" required /> -->
-            {{form1.username}}
-            <i class="uil uil-envelope-alt email"></i>
-          </div>
-          <div class="input_box">
-            <!-- <input type="password" placeholder="Enter your password" name="password" required /> -->
-            {{form1.password}}
-            <i class="uil uil-lock password"></i>
-            <i class="uil uil-eye-slash pw_hide"></i>
-          </div>
+    <!-- Login From -->
+    <div class="form login_form">
+      <form action='.' method="POST">
+        {% csrf_token %}
+        <h2>Login</h2>
 
-          <div class="option_field">
-            <span class="checkbox">
-              <!-- <input type="checkbox" id="check" /> -->
-              {{form1.check}}
-              <label for="id_check">Remember me</label>
-              
-            </span>
-            <a href="/recoverpassword" class="forgot_pw">Forgot password?</a>
-          </div>
+        <div class="input_box">
 
-          <button class="button">Login Now</button>
+          {{form1.username}}
+          <i class="uil uil-envelope-alt email"></i>
+        </div>
+        <div class="input_box">
 
-          <div class="login_signup">Don't have an account? <a href="#" id="signup">Signup</a></div>
-        </form>
-        {% if not csrf_token %}
-          <p>CSRF token is missing. Please reload the page.</p>
+          {{form1.password}}
+          <i class="uil uil-lock password"></i>
+          <i class="uil uil-eye-slash pw_hide"></i>
+        </div>
+
+        <div class="option_field">
+          <span class="checkbox">
+
+            {{form1.check}}
+            <label for="id_check">Remember me</label>
+
+          </span>
+          <a href="/recoverpassword" class="forgot_pw">Forgot password?</a>
+        </div>
+        {% if retryLogin %}
+        <p style="color:rgb(219, 28, 14);text-align: center; margin-bottom: 0px;">
+          {{form1.errors}}
+        </p>
         {% endif %}
-        
-      </div>
 
-      <!-- Signup From -->
+        <button class="button">Login Now</button>
 
-      <div class="form signup_form">
-        <form action='.' method="post">
-          {% csrf_token %}
-          <h2>Signup</h2>
-          <!-- <input type="hidden" value="signup" name="formType" /> -->
-          <div class="input_box">
-            <!-- <input type="email" placeholder="Enter your email" required /> -->
-            {{form2.newuser}}
-            <i class="uil uil-envelope-alt email"></i>
-          </div>
-          <div class="input_box">
-            <!-- <input type="password" placeholder="Create password" required /> -->
-            {{form2.password1}}
-            <i class="uil uil-lock password"></i>
-            <i class="uil uil-eye-slash pw_hide"></i>
-          </div>
-          <div class="input_box">
-            <!-- <input type="password" placeholder="Confirm password" required /> -->
-            {{form2.password2}}
-            <i class="uil uil-lock password"></i>
-            <i class="uil uil-eye-slash pw_hide"></i>
-          </div>
+        <div class="login_signup">Don't have an account? <a href="#" id="signup">Signup</a></div>
+      </form>
 
-          <button class="button">Signup Now</button>
 
-          <div class="login_signup">Already have an account? <a href="#" id="login">Login</a></div>
-        </form>
-      </div>
     </div>
-  </section>
 
-  <script>
-    // Resubmit the form programmatically after the page loads
-    window.addEventListener('load', function() {
-      var form = document.getElementById('myForm');
-      form.submit();
-    });
-  </script>
+    <!-- Signup From -->
+
+    <div class="form signup_form">
+      <form action='.' method="post">
+        {% csrf_token %}
+        <h2>Signup</h2>
+        <!-- <input type="hidden" value="signup" name="formType" /> -->
+        <div class="input_box">
+          <!-- <input type="email" placeholder="Enter your email" required /> -->
+          {{form2.newuser}}
+          <i class="uil uil-envelope-alt email"></i>
+        </div>
+        <div class="input_box">
+          <!-- <input type="password" placeholder="Create password" required /> -->
+          {{form2.password1}}
+          <i class="uil uil-lock password"></i>
+          <i class="uil uil-eye-slash pw_hide"></i>
+        </div>
+        <div class="input_box">
+          <!-- <input type="password" placeholder="Confirm password" required /> -->
+          {{form2.password2}}
+          <i class="uil uil-lock password"></i>
+          <i class="uil uil-eye-slash pw_hide"></i>
+        </div>
+        {% if retrySignup %}
+        <p style="color:rgb(219, 28, 14);text-align: center; margin-bottom: 0px;">
+          {{autherror}}
+          {{form2.errors}}
+        </p>
+        {% endif %}
+        <button class="button">Signup Now</button>
+
+        <div class="login_signup">Already have an account? <a href="#" id="login">Login</a></div>
+      </form>
+    </div>
+  </div>
+</section>
+{% if not csrf_token %}
+<p>CSRF token is missing. Please reload the page.</p>
+{% endif %}
+
+<script>
+  // Resubmit the form programmatically after the page loads
+  window.addEventListener('load', function () {
+    var form = document.getElementById('myForm');
+    form.submit();
+  });
+</script>
+
+{% if retryLogin %}
+<script>
+  // Resubmit the form programmatically after the page loads
+  home = document.querySelector(".home")
+  home.classList.add("show")
+</script>
+{% endif %}
+{% if retrySignup %}
+<script>
+  // Resubmit the form programmatically after the page loads
+  home = document.querySelector(".home")
+  home.classList.add("show")
+  formContainer = document.querySelector(".form_container")
+  formContainer.classList.add("active");
+</script>
+{% endif %}
