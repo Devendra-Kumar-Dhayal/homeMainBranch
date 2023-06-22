@@ -31,7 +31,14 @@
         </div>
         {% if retryLogin %}
         <p style="color:rgb(219, 28, 14);text-align: center; margin-bottom: 0px;">
-          {{form1.errors}}
+          {% for field in form1 %}
+          {% for err in field.errors %}
+          {{err}}
+          {%endfor %}
+          {%endfor %}
+          {% for error in form1.non_field_errors %}
+          {{error}}
+          {%endfor%}
         </p>
         {% endif %}
 
@@ -52,6 +59,11 @@
         <!-- <input type="hidden" value="signup" name="formType" /> -->
         <div class="input_box">
           <!-- <input type="email" placeholder="Enter your email" required /> -->
+          {{form2.email}}
+          <i class="uil uil-envelope-alt email"></i>
+        </div>
+        <div class="input_box">
+          <!-- <input type="email" placeholder="Enter your email" required /> -->
           {{form2.newuser}}
           <i class="uil uil-envelope-alt email"></i>
         </div>
@@ -69,8 +81,14 @@
         </div>
         {% if retrySignup %}
         <p style="color:rgb(219, 28, 14);text-align: center; margin-bottom: 0px;">
-          {{autherror}}
-          {{form2.errors}}
+          {% for field in form2 %}
+          {% for err in field.errors %}
+          {{err}}
+          {%endfor %}
+          {%endfor %}
+          {% for error in form2.non_field_errors %}
+          {{error}}
+          {%endfor%}
         </p>
         {% endif %}
         <button class="button">Signup Now</button>

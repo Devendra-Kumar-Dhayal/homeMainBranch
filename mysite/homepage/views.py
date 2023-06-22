@@ -10,9 +10,12 @@ from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.contrib.auth.views import PasswordResetView
 from django.contrib.messages.views import SuccessMessageMixin
+from django import forms
 
 def username_exists(username):
     return User.objects.filter(username=username).exists()
+
+
 
 def rest(request, pk):
     return render(request, "new_page.html") 
@@ -32,7 +35,7 @@ def home(request):
     data = "NOt logged in"
     flag = False
     sFlag = False
-    autherror=''
+  
     if request.method == "POST" :
        
         # print("form entry")
@@ -52,20 +55,18 @@ def home(request):
         elif form2.is_valid():
             
             user = form2.save(commit=False)
+            email= form2.cleaned_data.get('email')
             username = form2.cleaned_data.get('newuser')
             user.username=username
+            user.email= email
             password = form2.cleaned_data.get('password1')
-            if username_exists(username):
-                autherror= 'username is used'
-                sFlag=True
-            
-            else:
-                user.set_password(password)
-                user.save()
-                new_user = authenticate(username=user.username, password=password)
-                login(request, new_user)
+           
+            user.set_password(password)
+            user.save()
+            new_user = authenticate(username=user.username, password=password)
+            login(request, new_user)
                 
-                data ="signed up"
+            data ="signed up"
             # return redirect('/')
         else :
             sFlag=True
@@ -81,7 +82,6 @@ def home(request):
         'game':game,
         'retryLogin':flag,
         'retrySignup':sFlag,
-        'autherror':autherror
     }
     return render(request, 'homepage/home.html',context)
 
