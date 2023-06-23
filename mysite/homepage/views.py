@@ -32,7 +32,6 @@ def home(request):
     
     form1 = UserLoginForm(request.POST or None )
     form2 = UserRegisterForm(request.POST or None)
-    data = "NOt logged in"
     flag = False
     sFlag = False
   
@@ -47,7 +46,7 @@ def home(request):
             user = authenticate(username=username, password=password)
             # data = username
             login(request, user)
-            data = "logged up"
+
             # return redirect('/')
         elif str(form1.errors)!='<ul class="errorlist"><li>username<ul class="errorlist"><li>This field is required.</li></ul></li><li>password<ul class="errorlist"><li>This field is required.</li></ul></li></ul>':
             flag = True
@@ -66,7 +65,6 @@ def home(request):
             new_user = authenticate(username=user.username, password=password)
             login(request, new_user)
                 
-            data ="signed up"
             # return redirect('/')
         else :
             sFlag=True
@@ -76,7 +74,6 @@ def home(request):
             
 
     context = {
-        'data': data,
         'form1':form1,
         'form2':form2,
         'game':game,
