@@ -1,13 +1,4 @@
-# <!-- Login From -->
-# <input type="email" placeholder="Enter your email" name="email" required />
-# <input type="password" placeholder="Enter your password" name="password" required />
-# <label for="check">Remember me</label>
 
-# <!-- Signup From -->
-
-# <input type="email" placeholder="Enter your email" required />
-# <input type="password" placeholder="Create password" required />
-# <input type="password" placeholder="Confirm password" required />
 
 from django import forms
 from django.contrib.auth import authenticate,get_user_model

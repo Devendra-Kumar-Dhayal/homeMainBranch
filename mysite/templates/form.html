@@ -1,3 +1,4 @@
+{% load socialaccount %}
 <section class="home">
   <div class="form_container">
     <i class="uil uil-times form_close"></i>
@@ -43,6 +44,13 @@
         {% endif %}
 
         <button class="button">Login Now</button>
+        <!-- google auth button -->
+        <button class="btn btn-outline-info">
+          <a href="{% provider_login_url 'google'%}?next=/">
+            <i class="fab fa-google"></i>
+            Login with Google
+          </a>
+        </button>
 
         <div class="login_signup">Don't have an account? <a href="#" id="signup">Signup</a></div>
       </form>
