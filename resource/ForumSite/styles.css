@@ -1,5 +1,5 @@
 :root {
-  --background: #d3d3d3;
+  --background: #4169e1;
   --primary: #ffffff;
   --accent-color: #009ffd;
   --sec: linear-gradient(315deg, #2a2a72 10%, #009ffd 100%);
@@ -9,7 +9,8 @@
   display: flex;
   justify-content: center;
   margin-top: 5%;
-  flex-wrap: nwrap;
+  flex-wrap: nowrap;
+  margin-right: 10%;
 }
 
 ::-webkit-scrollbar {
@@ -17,10 +18,11 @@
 }
 
 body {
-  background-image: linear-gradient(to right top, #ef7eff, #af96ff, #69a6ff, #1daefc, #00b0e0);
+  background-image:  linear-gradient(to right top, #ef7eff, #af96ff, #69a6ff, #1daefc, #00b0e0);
   background-size: 400% 400%;
   animation: gradient 10s linear infinite;
   height: 100vh;
+  background-attachment: fixed;
 }
 
 @keyframes gradient {
@@ -46,12 +48,12 @@ div {
   backdrop-filter: blur(4.6px);
   -webkit-backdrop-filter: blur(4.6px);
   border: 1px solid rgba(255, 255, 255, 0.4);
-  align-items: center;
-  justify-content: center;
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* text-align: center; */
   margin-left: 4%;
   height: 888px;
   width: 20%;
-  text-align: center;
   transition: background-color 0.2s ease;
 }
 
@@ -62,8 +64,8 @@ div {
 
 .feed {
   animation: gradient 15s ease infinite;
-  margin-left: 4%;
-  margin-right: 4%;
+  margin-left: 2%;
+  margin-right: 2%;
   height: 88%;
   width: 40%;
 }
@@ -86,17 +88,8 @@ div {
   align-items: center;
 }
 
-.circle {
-  background: rgba(255, 255, 255, 0.30);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  margin-left: 10px;
-}
-
 #cpost {
   transform: scale(1.7);
-  margin-left: 12px;
   margin-top: 11px;
 }
 
@@ -126,8 +119,6 @@ div {
   margin-top: 15px;
   position: relative;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .post {
@@ -136,19 +127,19 @@ div {
 }
 
 .trending {
-  background: rgba(255, 255, 255, 0.11);
-  border-radius: 16px; /* Adjust this value as needed */
+  background: url("C:/Users/Noct/Downloads/flame.png") no-repeat;
+  background-position-x: 13px;
+  background-position-y: 14px;
+  background-size: 25px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4.6px);
   -webkit-backdrop-filter: blur(4.6px);
   border: 1px solid rgba(255, 255, 255, 0.4);
   display: flex;
-  justify-content: center;
-  margin-right: 4%;
-  height: 888px;
-  width: 20%;
-  text-align: center;
+  width: 3%;
+  height: 50px;
   transition: background-color 0.2s ease;
+  overflow: hidden;
 }
 
 .trending:hover{
@@ -156,12 +147,11 @@ div {
 }
 
 h1 {
-  display: inline-block;
-  font-size: inherit;
+  display: flexbox;
+  font-size: 140%;
   font-weight: inherit;
-  line-height: inherit;
-  color: var(--accent-color);
-  padding: 0;
+  color: #000000;
+  margin-left: 10%;
 }
 
 .lead {
@@ -169,26 +159,27 @@ h1 {
 }
 
 .search {
-  background: rgba(255, 255, 255, 0.11);
+  background: url("C:/Users/Noct/Downloads/edit.png") no-repeat;
+  background-position: 22px;
+  background-size: 25px;
   border-radius: 16px; /* Adjust this value as needed */
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4.6px);
   -webkit-backdrop-filter: blur(4.6px);
   border: 1px solid rgba(255, 255, 255, 0.4);
-  margin-left: 25px;
-  border-radius: 10px;
+  border-radius: 50px;
   height: 2.0em;
-  width: 85%;
+  width: 5%;
   font-family: Arial, Helvetica, sans-serif;
   color: black;
   outline-color: rgba(255, 255, 255, 0.1);
-  background: transparent;
   margin-left: 18px;
   font-size: 20px;
   text-align: center;
 }
 nav{
-  margin-left: 150px;
+  display: flex;
+  justify-content: center;
 }
 
 .cta {
@@ -214,3 +205,55 @@ nav{
 .highlight {
   background-color: yellow;
 }
+
+.trend{
+  display: none;
+}
+
+
+@media (max-width: 960px) {
+  .feed {
+    position: absolute;
+    margin-top: 5%;
+    left: 0;
+    width: 96%;
+  }
+  
+  .leaderboard {
+    scale: 0;
+  }
+
+  .trending {
+    scale: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
