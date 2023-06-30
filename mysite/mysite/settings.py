@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     # user added
 
     'homepage',
-    'import_export'
+    'import_export',
+    'gamepage',
 ]
 
 MIDDLEWARE = [
