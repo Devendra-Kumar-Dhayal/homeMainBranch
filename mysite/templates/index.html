@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>GamePage</title>
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <script type="text/javascript" src="{% static 'styles/app.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}" />
+  </head>
+
+  <body>
+    <section class="container">
+      <div class="leaderboard">
+        <h1 class="lead">Leaderboard</h1>
+      </div>
+      <div class="feed">
+        <div class="create">
+          <div class="circle">
+            <img
+              id="cpost"
+              src="C:\Users\Noct\Downloads\search_FILL0_wght300_GRAD200_opsz24.png"
+              title="Create Post"
+            />
+          </div>
+          <input class="search" type="text" placeholder="" size="56" />
+        </div>
+        <div class="sort">
+          <header>
+            <nav>
+              <button class="cta">New</button>
+              <button class="cta">Top</button>
+              <button class="cta">Trending</button>
+              <button class="cta">Rising</button>
+              <button class="cta">Hot</button>
+            </nav>
+          </header>
+        </div>
+         
+        {% block content %}
+        {% endblock content %}
+      </div>
+
+      <div class="trending">
+        <h1 class="lead">Trending</h1>
+      </div>
+    </section>
+  </body>
+</html>
