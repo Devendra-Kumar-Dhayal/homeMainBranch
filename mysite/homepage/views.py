@@ -27,7 +27,6 @@ game = [
     {'id' :'3', 'name':'game3'}
 ]
 # Create your views here.
-@csrf_protect
 def home(request):
     
     form1 = UserLoginForm(request.POST or None )
@@ -46,8 +45,8 @@ def home(request):
             user = authenticate(username=username, password=password)
             # data = username
             login(request, user)
-
-            # return redirect('/')
+            return redirect('/')
+        
         elif str(form1.errors)!='<ul class="errorlist"><li>username<ul class="errorlist"><li>This field is required.</li></ul></li><li>password<ul class="errorlist"><li>This field is required.</li></ul></li></ul>':
             flag = True
         
@@ -64,8 +63,8 @@ def home(request):
             user.save()
             new_user = authenticate(username=user.username, password=password)
             login(request, new_user)
+            return redirect('/')
                 
-            # return redirect('/')
         else :
             sFlag=True
         print(form2.errors)
