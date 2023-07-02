@@ -125,6 +125,19 @@ div {
   height: 39em;
   margin-top: 15px;
 }
+h5{
+  font-size: medium;
+  margin: 0px;
+}
+.message{
+  
+ 
+  background-color: rgba(255, 255, 255, 0.4);
+  margin: 5px 5px 5px 5px ;
+  padding: 5px 5px 5px 5px ;
+  
+  
+}
 
 .trending {
   background: url("C:/Users/Noct/Downloads/flame.png") no-repeat;

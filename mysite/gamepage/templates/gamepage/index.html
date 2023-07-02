@@ -14,7 +14,7 @@
   <div class="tiles">
     <div class="container">
       <div class="leaderboard">
-        <h1 class="lead">Leaderboard</h1>
+        <h1 class="lead">{{game.name}}</h1>
       </div>
       <div class="feed">
         <div class="create">
@@ -22,14 +22,35 @@
         </div>
         <div class="sort">
             <nav>
-              <a href=".."><button class="cta">Home page</button></a>
+              <a href="{% url 'home' %}"><button class="cta">Home page</button></a>
               <button class="cta">Top</button>
               <button class="cta">Trending</button>
               <button class="cta">Rising</button>
               <button class="cta">Hot</button>
             </nav>
         </div>
-        <div class="post"></div>
+        <div class="post" >
+          <!-- posts  -->
+
+
+
+
+          <div class="message">
+            <h5>username</h5>
+            <p style=" margin: 3px;">chat</p>
+          </div>
+          <div class="message">
+            <h5>username</h5>
+            <p style=" margin: 3px;">chat</p>
+          </div>
+
+          <div class="message">
+            <input type="text" name="content" class="message" placeholder="Your message ..." id="chat-message-input">
+            <button id="submit-chat-message">submit</button>
+          </div>
+
+
+        </div>
       </div>
       <div class="trending">
         <h1 class="trend">Trending</h1>

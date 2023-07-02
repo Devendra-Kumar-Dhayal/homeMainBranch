@@ -17,15 +17,10 @@ def username_exists(username):
 
 
 
-def rest(request, pk):
-    return render(request, "new_page.html") 
 
 
-game = [
-    {'id' :'1', 'name':'game1'},
-    {'id' :'2', 'name':'game2'},
-    {'id' :'3', 'name':'game3'}
-]
+
+
 # Create your views here.
 def home(request):
     
@@ -70,16 +65,19 @@ def home(request):
         print(form2.errors)
         print(flag)
         print(sFlag)
-            
+
+    games =GameInfo.objects.all().exclude(name='')[5:9] # game objects 
+             
 
     context = {
         'form1':form1,
         'form2':form2,
-        'game':game,
         'retryLogin':flag,
         'retrySignup':sFlag,
+        'games':games,
     }
     return render(request, 'homepage/home.html',context)
+
 
 
 # def home(request):
@@ -99,3 +97,4 @@ class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
                       " If you don't receive an email, " \
                       "please make sure you've entered the address you registered with, and check your spam folder."
     success_url = reverse_lazy(home)
+

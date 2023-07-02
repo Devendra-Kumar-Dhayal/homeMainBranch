@@ -47,11 +47,18 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
 
-    # user added
+    #chat application
+
+    'chatapp',
+    'channels',
+
+
+    # pages added
 
     'homepage',
     'import_export',
     'gamepage',
+    
 ]
 
 MIDDLEWARE = [
@@ -85,6 +92,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
+
 
 
 # Database
