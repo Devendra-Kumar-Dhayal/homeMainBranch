@@ -17,8 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+admin.sites.AdminSite.site_header = "Home Main Branch"
+admin.sites.AdminSite.site_title = "HMB Admin Portal"
+admin.sites.AdminSite.index_title = "Welcome to HMB Admin Portal"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('homepage.urls')),
+    path('', include('gamepage.urls')),
 
 ]

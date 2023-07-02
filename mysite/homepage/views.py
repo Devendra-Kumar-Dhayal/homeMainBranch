@@ -17,22 +17,15 @@ def username_exists(username):
 
 
 
-def rest(request, pk):
-    return render(request, "new_page.html") 
 
 
-game = [
-    {'id' :'1', 'name':'game1'},
-    {'id' :'2', 'name':'game2'},
-    {'id' :'3', 'name':'game3'}
-]
+
+
 # Create your views here.
-@csrf_protect
 def home(request):
     
     form1 = UserLoginForm(request.POST or None )
     form2 = UserRegisterForm(request.POST or None)
-    data = "NOt logged in"
     flag = False
     sFlag = False
   
@@ -47,8 +40,8 @@ def home(request):
             user = authenticate(username=username, password=password)
             # data = username
             login(request, user)
-            data = "logged up"
-            # return redirect('/')
+            return redirect('/')
+        
         elif str(form1.errors)!='<ul class="errorlist"><li>username<ul class="errorlist"><li>This field is required.</li></ul></li><li>password<ul class="errorlist"><li>This field is required.</li></ul></li></ul>':
             flag = True
         
@@ -65,25 +58,26 @@ def home(request):
             user.save()
             new_user = authenticate(username=user.username, password=password)
             login(request, new_user)
+            return redirect('/')
                 
-            data ="signed up"
-            # return redirect('/')
         else :
             sFlag=True
         print(form2.errors)
         print(flag)
         print(sFlag)
-            
+
+    games =GameInfo.objects.all().exclude(name='')[5:9] # game objects 
+             
 
     context = {
-        'data': data,
         'form1':form1,
         'form2':form2,
-        'game':game,
         'retryLogin':flag,
         'retrySignup':sFlag,
+        'games':games,
     }
     return render(request, 'homepage/home.html',context)
+
 
 
 # def home(request):
@@ -103,3 +97,4 @@ class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
                       " If you don't receive an email, " \
                       "please make sure you've entered the address you registered with, and check your spam folder."
     success_url = reverse_lazy(home)
+

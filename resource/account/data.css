@@ -1,0 +1,91 @@
+.container {
+  background: #f9f5f5;
+  width: 840px;
+  height: 550px;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 10%;
+  box-shadow: 2px 4px 20px rgba(119, 119, 119, 0.5);
+  display: flex;
+}
+
+.sidebar {
+  float: left;
+  top: -5%;
+  left: 5%;
+  position: absolute;
+  width: 8%;
+  height: 110%;
+  background-color: aquamarine;
+  box-shadow: 3px 3px 10px rgba(119, 119, 119, 0.5);
+  border: .2rem;
+}
+
+.sidebar i {
+  color: #150f0f;
+  font-size: 1.3rem;
+  display: block;
+  padding: 60px 20px;
+  cursor: pointer;
+}
+
+.sidebar i:first-child {
+  margin-top: 7px;
+}
+
+.sidebar i:active {
+  color: aquamarine;
+}
+
+.content {
+  padding: 20px;
+  width: 60%;
+  margin-left: 27%;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.container h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.container h3{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.container input,
+.container select {
+  margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box
+}
+
+.container button {
+  padding: 10px 20px;
+  background-color: aquamarine;
+  color: #150f0f;
+  border: none;
+  cursor: pointer;
+}
+
+.dob-container {
+  position: relative;
+}
+
+.dob-container .calendar-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  cursor: pointer;
+}
