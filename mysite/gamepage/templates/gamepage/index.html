@@ -41,7 +41,7 @@
           </div>
           {% endfor %}
           
-
+          {% if request.user.is_authenticated  %}
           <form action='.' method="POST">
             {% csrf_token %}
             <div class="message">
@@ -51,7 +51,10 @@
             </div>
 
           </form>
-
+          {% endif %}
+          {% if request.user.is_authenticated == False%}
+          <h1> Login to comment </h1>
+          {% endif %}
 
         </div>
       </div>
