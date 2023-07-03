@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Settings</title>
+    <link rel="stylesheet" type="text/css" href="data.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <i class="fas fa-user" onclick="showTab('account')"></i>
+            <i class="fas fa-lock" onclick="showTab('security')"></i>
+            <i class="fas fa-bell" onclick="showTab('notifications')"></i>
+            <i class="fas fa-cog" onclick="showTab('preferences')"></i>
+        </div>
+        <div class="content">
+            <div class="tab-content active" id="account">
+                <h2>Account Information</h2>
+                
+                    <h3>Name:</h3>
+                    <input type="text" id="name" name="name" required>
+    
+                    <h3>Email:</h3>
+                    <input type="email" id="email" name="email" required>
+    
+                    <h3>Gender</h3>
+                    <select id="gender" name="gender">
+                        <option value="">Select gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+    
+                    <h3>Date Of Birth:</h3>
+                    <div class="dob-container">
+                        <input type="text" id="dob" name="dob" readonly>
+                        <span class="calendar-icon"></span>
+                    </div>
+    
+                    <button type="submit">Save Changes</button>
+                              
+            </div>
+            <div class="tab-content" id="security">
+                <h2>Security Settings</h2>
+                <p>Change password</p>
+                <p>Enable two-factor authentication</p>
+                <p>More security options...</p>
+            </div>
+            <div class="tab-content" id="notifications">
+                <h2>Notification Settings</h2>
+                <p>Enable email notifications</p>
+                <p>Set notification preferences</p>
+                <p>More notification options...</p>
+            </div>
+            <div class="tab-content" id="preferences">
+                <h2>Preferences</h2>
+                <p>Select language</p>
+                <p>Choose theme</p>
+                <p>More preferences...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="datepicker.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</body>
+</html>

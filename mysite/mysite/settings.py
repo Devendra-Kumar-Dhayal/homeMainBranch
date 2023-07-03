@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'homepage',
     'import_export',
     'gamepage',
+    'accounts',
     
 ]
 
