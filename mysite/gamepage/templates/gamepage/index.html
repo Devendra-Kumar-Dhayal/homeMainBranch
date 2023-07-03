@@ -34,20 +34,23 @@
 
 
 
+          {% for post in posts %}
+          <div class="message">
+            <h5>{{post.author}}: {{post.title}}</h5>
+            <p style=" margin: 3px;">{{post.content}}</p>
+          </div>
+          {% endfor %}
+          
 
-          <div class="message">
-            <h5>username</h5>
-            <p style=" margin: 3px;">chat</p>
-          </div>
-          <div class="message">
-            <h5>username</h5>
-            <p style=" margin: 3px;">chat</p>
-          </div>
+          <form action='.' method="POST">
+            {% csrf_token %}
+            <div class="message">
+              {{form.title}}
+              {{form.content}}
+              <button id="submit-chat-message" type="submit">submit</button>
+            </div>
 
-          <div class="message">
-            <input type="text" name="content" class="message" placeholder="Your message ..." id="chat-message-input">
-            <button id="submit-chat-message">submit</button>
-          </div>
+          </form>
 
 
         </div>

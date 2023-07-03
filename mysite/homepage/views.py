@@ -1,23 +1,15 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.contrib.auth import login, logout, authenticate,get_user_model
-from django.contrib import messages
-from django.contrib.auth.forms import UserChangeForm, AuthenticationForm
+from django.contrib.auth import login, logout, authenticate
 from .forms import UserRegisterForm ,UserLoginForm
 from .models import GameInfo
-from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.contrib.auth.views import PasswordResetView
 from django.contrib.messages.views import SuccessMessageMixin
-from django import forms
+
 
 def username_exists(username):
     return User.objects.filter(username=username).exists()
-
-
-
-
 
 
 
