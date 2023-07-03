@@ -49,10 +49,7 @@ INSTALLED_APPS = [
 
     #chat application
 
-    'chatapp',
-    'channels',
-
-
+  
     # pages added
 
     'homepage',
