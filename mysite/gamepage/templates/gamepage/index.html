@@ -39,6 +39,10 @@
             <h5>{{post.author}}: {{post.title}}</h5>
             <p style=" margin: 3px;">{{post.content}}</p>
           </div>
+          {% for com in comment %}
+          <p> &emsp; {{com}}</p>
+          <p> &emsp; {{com.content}}</p>
+          {% endfor %}
           {% endfor %}
           
           {% if request.user.is_authenticated  %}

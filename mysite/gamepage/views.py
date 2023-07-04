@@ -11,7 +11,8 @@ def gamepage(request,id):
     
     game = GameInfo.objects.get(id=id)
     posts = Post.objects.all().filter(game = game.id )
-    # comment = 
+    comment =Comment.objects.filter(post__in=posts)
+     
     form = PostForm(request.POST or None)
     
     if request.method=="POST":
@@ -27,6 +28,7 @@ def gamepage(request,id):
             return HttpResponseRedirect(request.path_info)
     
     context = {
+        'comment':comment,
         'posts':posts,
         'game':game,
         'form':form,
