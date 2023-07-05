@@ -43,8 +43,9 @@
           <p> &emsp; {{com}}</p>
           <p> &emsp; {{com.content}}</p>
           {% endfor %}
-          {% endfor %}
           
+          {% endfor %}
+          {{data}}
           {% if request.user.is_authenticated  %}
           <form action='.' method="POST">
             {% csrf_token %}

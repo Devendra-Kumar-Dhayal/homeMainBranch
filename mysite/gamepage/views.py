@@ -7,12 +7,37 @@ from .models import Post,Comment
 def gamePage(request):
      return render(request,'gamepage/index.html')
 
-def gamepage(request,id):
+def getCommentData(comments,post):
+
+    i =0
+    data ={}
+    comment = {}
+    numComments= len(comments)
+    if numComments==0:
+        return comment
+    for comment in comments:
+        commentFlag =Comment.objects.filter(post=post).filter(parent=comment).exists()
+        if commentFlag : 
+            data[comment]=getCommentData(Comment.objects.filter(post=post).filter(parent=comment),post)
+        else :
+            data[comment]={}
+    return data
     
+def gamepage(request,id):
+    posts={}
+    comment = []
     game = GameInfo.objects.get(id=id)
-    posts = Post.objects.all().filter(game = game.id )
-    comment =Comment.objects.filter(post__in=posts)
-     
+    postsFlag = Post.objects.all().filter(game = game.id ).exists()
+    if postsFlag:
+        posts = Post.objects.all().filter(game = game.id )
+        for post in posts:
+        
+            commentFlag =Comment.objects.filter(post=post).filter(parent=None).exists()
+            if commentFlag : 
+                comment=Comment.objects.filter(post=post).filter(parent=None)
+    
+    data = getCommentData(comment,posts[0])
+    print("parent = ",data)
     form = PostForm(request.POST or None)
     
     if request.method=="POST":
@@ -28,6 +53,7 @@ def gamepage(request,id):
             return HttpResponseRedirect(request.path_info)
     
     context = {
+        'data':data,
         'comment':comment,
         'posts':posts,
         'game':game,
