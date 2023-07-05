@@ -19,10 +19,10 @@
         {% if request.user.is_authenticated  %}
         <form action='.' method="POST">
           {% csrf_token %}
-          <div class="message">
+          <div class="message1">
             {{form.title}}
             {{form.content}}
-            <button id="submit-chat-message" type="submit">Submit</button>
+            <button id="submit-chat-message" type="submit">Post</button>
           </div>
 
         </form>
