@@ -1,0 +1,15 @@
+<div>
+  <ul>
+    {% for comment in comments %}
+    <li>
+      {{ comment.text }} {% if comment.children %}
+      <ul>
+        {% for child in comment.children %}
+        <li>{{ child.text }}</li>
+        {% include 'comments.html' with comments=child.children %} {% endfor %}
+      </ul>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
