@@ -1,8 +1,9 @@
+{%load static%}
 <!DOCTYPE html>
 <html>
 <head>
     <title>User Settings</title>
-    <link rel="stylesheet" type="text/css" href="data.css">
+    <link rel="stylesheet" type="text/css" href="{%static 'accounts/css/data.css'%}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -63,7 +64,7 @@
         </div>
     </div>
 
-    <script src="data.js"></script>
+    <script src="{%static 'accounts/js/data.js'%}"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </body>
 </html>

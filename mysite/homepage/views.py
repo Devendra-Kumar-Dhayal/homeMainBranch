@@ -11,8 +11,6 @@ from django.contrib.messages.views import SuccessMessageMixin
 def username_exists(username):
     return User.objects.filter(username=username).exists()
 
-
-
 # Create your views here.
 def home(request):
     
@@ -58,7 +56,7 @@ def home(request):
         print(flag)
         print(sFlag)
 
-    games =GameInfo.objects.all().exclude(name='')[5:9] # game objects 
+    games = GameInfo.objects.all().exclude(name='')# game objects 
              
 
     context = {

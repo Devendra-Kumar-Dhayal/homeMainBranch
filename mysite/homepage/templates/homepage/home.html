@@ -8,9 +8,11 @@
     <div style="display: flex; align-items: center;width: max-content;flex-direction: row;margin-left: 10%;">
         {% for game in games %}
         <a href="{% url 'gamepage' game.id %}">
+        <img src="{{game.header_image}}"  >
             <div style="height: 70 px ;width: 180px; display: flex;margin: 30px ;border-color: white; border-style: dashed; color: white;padding:5px 5px 5px 5px;">
                 <h1>{{game.name}}</h1>
                 <p>{{game.id}}</p>
+                
 
 
             </div>
@@ -18,5 +20,7 @@
         {% endfor %}
     </div>
 </section>
+        
+
 
 {% endblock content %}

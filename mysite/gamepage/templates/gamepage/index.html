@@ -16,6 +16,7 @@
         <h1 class="lead">{{game.name}}</h1>
       </div>
       <div class="feed">
+        {% if request.user.is_authenticated  %}
         <form action='.' method="POST">
           {% csrf_token %}
           <div class="message">
@@ -25,6 +26,10 @@
           </div>
 
         </form>
+        {% endif %}
+          {% if request.user.is_authenticated == False%}
+          <h1> Login to comment </h1>
+          {% endif %}
         <div class="sort">
             <nav>
               <button class="cta" onclick="location.href='{% url 'home' %}'" type="button">Home Page</button>
@@ -44,6 +49,10 @@
             <h5>{{post.author}}: {{post.title}}</h5>
             <p style=" margin: 3px;">{{post.content}}</p>
           </div>
+          {% for com in comment %}
+          <p> &emsp; {{com}}</p>
+          <p> &emsp; {{com.content}}</p>
+          {% endfor %}
           {% endfor %}
           
 

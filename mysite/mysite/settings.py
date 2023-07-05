@@ -49,15 +49,13 @@ INSTALLED_APPS = [
 
     #chat application
 
-    'chatapp',
-    'channels',
-
-
+  
     # pages added
 
     'homepage',
     'import_export',
     'gamepage',
+    'accounts',
     
 ]
 
@@ -101,7 +99,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
+        'NAME': 'postgres1',
         'USER': 'postgres',
         'PASSWORD': 'admin@292',
         'HOST': 'localhost',
@@ -190,3 +188,6 @@ SOCIALACCOUNT_PROVIDERS = {
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

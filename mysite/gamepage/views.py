@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from homepage.models import GameInfo
 from .forms import PostForm
-from .models import Post
+from .models import Post,Comment
 # Create your views here.
 def gamePage(request):
      return render(request,'gamepage/index.html')
@@ -11,6 +11,8 @@ def gamepage(request,id):
     
     game = GameInfo.objects.get(id=id)
     posts = Post.objects.all().filter(game = game.id )
+    comment =Comment.objects.filter(post__in=posts)
+     
     form = PostForm(request.POST or None)
     
     if request.method=="POST":
@@ -26,6 +28,7 @@ def gamepage(request,id):
             return HttpResponseRedirect(request.path_info)
     
     context = {
+        'comment':comment,
         'posts':posts,
         'game':game,
         'form':form,
