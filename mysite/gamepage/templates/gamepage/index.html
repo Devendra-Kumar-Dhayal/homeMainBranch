@@ -11,18 +11,23 @@
     <script src="{% static 'gamepage/js/app.js' %}" async defer></script>
   </head>
   <body>
-  <div class="tiles">
     <div class="container">
       <div class="leaderboard">
         <h1 class="lead">{{game.name}}</h1>
       </div>
       <div class="feed">
-        <div class="create">
-            <input class="search" type="text" placeholder="" size="56">
-        </div>
+        <form action='.' method="POST">
+          {% csrf_token %}
+          <div class="message">
+            {{form.title}}
+            {{form.content}}
+            <button id="submit-chat-message" type="submit">Submit</button>
+          </div>
+
+        </form>
         <div class="sort">
             <nav>
-              <a href="{% url 'home' %}"><button class="cta">Home page</button></a>
+              <button class="cta" onclick="location.href='{% url 'home' %}'" type="button">Home Page</button>
               <button class="cta">Top</button>
               <button class="cta">Trending</button>
               <button class="cta">Rising</button>
@@ -42,24 +47,12 @@
           {% endfor %}
           
 
-          <form action='.' method="POST">
-            {% csrf_token %}
-            <div class="message">
-              {{form.title}}
-              {{form.content}}
-              <button id="submit-chat-message" type="submit">submit</button>
-            </div>
-
-          </form>
+          
 
 
         </div>
       </div>
-      <div class="trending">
-        <h1 class="trend">Trending</h1>
-      </div>
     </div>
-  </div>
   </body>
 </html>
 

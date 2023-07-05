@@ -19,7 +19,7 @@
 }
 
 body {
-  background: url('/static/homepage/SiteBackground.gif');
+  background: url("/static/homepage/SiteBackground.gif");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -333,7 +333,7 @@ body.dark .button {
     background: rgba(255, 255, 255, 0.2);
   }
 
-  .nav-links a{
+  .nav-links a {
     margin-top: 20px;
   }
 
@@ -448,18 +448,23 @@ body.dark .button {
   margin-top: 30px;
   width: 100%;
   height: 40px;
+  border: transparent;
 }
 .input_box input {
   height: 100%;
   width: 100%;
-  border-radius: 2px;
-  border: 4px solid;
   outline: none;
   padding: 0 30px;
   color: #333;
   transition: all 0.2s ease;
   border-bottom: 1.5px solid #09ffe1;
+  background: transparent;
 }
+
+#id_username{
+  
+}
+
 .input_box input:focus {
   border-color: #09ffe1;
 }
