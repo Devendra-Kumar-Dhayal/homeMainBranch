@@ -45,12 +45,15 @@
 
         <button class="button">Login Now</button>
         <!-- google auth button -->
-        <button class="btn btn-outline-info">
+       
+        <div class="google_signup">Login With Google
           <a href="{% provider_login_url 'google'%}?next=/">
-            <i class="fab fa-google"></i>
-            Login with Google
+            <i class="fab fa-google google-icon"></i>
           </a>
-        </button>
+        </div>
+      
+        
+        
 
         <div class="login_signup">Don't have an account? <a href="#" id="signup">Signup</a></div>
       </form>

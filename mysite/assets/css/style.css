@@ -19,7 +19,7 @@
 }
 
 body {
-  background: url("/static/homepage/SiteBackground.gif");
+  background: url('/static/homepage/SiteBackground.gif');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -333,7 +333,7 @@ body.dark .button {
     background: rgba(255, 255, 255, 0.2);
   }
 
-  .nav-links a {
+  .nav-links a{
     margin-top: 20px;
   }
 
@@ -397,7 +397,7 @@ body.dark .button {
   pointer-events: auto;
 }
 
-/* Form */
+/* From */
 .form_container {
   position: fixed;
   max-width: 320px;
@@ -406,7 +406,7 @@ body.dark .button {
   left: 50%;
   transform: translate(-50%, -50%) scale(1.2);
   z-index: 101;
-  background: #2c2c2c;
+  background: #190f0f;
   padding: 25px;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.1);
@@ -414,7 +414,6 @@ body.dark .button {
   pointer-events: none;
   transition: all 0.4s ease-out;
 }
-
 .home.show .form_container {
   opacity: 1;
   pointer-events: auto;
@@ -433,14 +432,14 @@ body.dark .button {
   position: absolute;
   top: 10px;
   right: 20px;
-  color: #0b0217;
+  color: #ffffff;
   font-size: 22px;
   opacity: 0.7;
   cursor: pointer;
 }
 .form_container h2 {
   font-size: 22px;
-  color: #09ffe1;
+  color: #ffffff;
   text-align: center;
 }
 .input_box {
@@ -448,25 +447,19 @@ body.dark .button {
   margin-top: 30px;
   width: 100%;
   height: 40px;
-  border: transparent;
 }
 .input_box input {
   height: 100%;
   width: 100%;
+  border: none;
   outline: none;
   padding: 0 30px;
   color: #333;
   transition: all 0.2s ease;
-  border-bottom: 1.5px solid #09ffe1;
-  background: transparent;
+  border-bottom: 1.5px solid #aaaaaa;
 }
-
-#id_username{
-  
-}
-
 .input_box input:focus {
-  border-color: #09ffe1;
+  border-color: #359388;
 }
 .input_box i {
   position: absolute;
@@ -481,7 +474,7 @@ body.dark .button {
 }
 .input_box input:focus ~ i.email,
 .input_box input:focus ~ i.password {
-  color: #7d2ae8;
+  color: #359388;
 }
 .input_box i.pw_hide {
   right: 0;
@@ -495,7 +488,7 @@ body.dark .button {
   justify-content: space-between;
 }
 .form_container a {
-  color: #09ffe1;
+  color: #359388;
   font-size: 12px;
 }
 .form_container a:hover {
@@ -507,16 +500,16 @@ body.dark .button {
   white-space: nowrap;
 }
 .checkbox input {
-  accent-color: #7d2ae8;
+  accent-color: #359388;
 }
 .checkbox label {
   font-size: 12px;
   cursor: pointer;
   user-select: none;
-  color: #09ffe1;
+  color: #ffffff;
 }
 .form_container .button {
-  background: #09ffe1;
+  background:#359388;
   margin-top: 30px;
   width: 100%;
   padding: 10px 0;
