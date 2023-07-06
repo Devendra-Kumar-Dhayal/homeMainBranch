@@ -38,20 +38,16 @@
           <div class="message">
             <h5>{{post.author}}: {{post.title}}</h5>
             <p style=" margin: 3px;">{{post.content}}</p>
+            <h6>post id  = {{post.id}}</h6>
           </div>
-          {% for com in comment %}
-          <p> &emsp; {{com}}</p>
-          <p> &emsp; {{com.content}}</p>
           {% endfor %}
-          
-          {% endfor %}
-          {{data}}
+          <!-- {{data}} -->
           {% if request.user.is_authenticated  %}
           <form action='.' method="POST">
             {% csrf_token %}
             <div class="message">
-              {{form.title}}
-              {{form.content}}
+              {{postForm.title}}
+              {{postForm.content}}
               <button id="submit-chat-message" type="submit">submit</button>
             </div>
 
@@ -65,6 +61,7 @@
       </div>
       <div class="trending">
         <h1 class="trend">Trending</h1>
+        {{data}}
       </div>
     </div>
   </div>

@@ -46,3 +46,6 @@ container.addEventListener("click", () => {
   }
   isAnimating = !isAnimating;
 });
+
+var value  = findValueById('faef');
+console.log(value);
