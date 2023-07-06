@@ -6,22 +6,28 @@ from .models import Post,Comment
 # Create your views here.
 def gamePage(request):
      return render(request,'gamepage/index.html')
+def commentToStr(comment):
+    return "<h4>"+str(comment)+"</h4><br>"
+def postToStr(post):
+    return r'<div class="message"><h5>'+str(post.author)+':'+ str(post.title)+'</h5><p style=" margin: 3px;">'+str(post.content)+'</p><h6>post id  = '+str(post.id)+'</h6></div>'
+
 
 def getCommentData(comments,post):
 
     i =0
-    data ={}
-    comment = {}
+    data =""
     numComments= len(comments)
     if numComments==0:
-        return comment
+        return data
     for comment in comments:
         commentFlag =Comment.objects.filter(post=post).filter(parent=comment).exists()
-        data[comment] = []
+        data += "<br>"
+        data+= commentToStr(comment)
         if commentFlag : 
-            data[comment].append(getCommentData(Comment.objects.filter(post=post).filter(parent=comment),post))
+            data+=getCommentData(Comment.objects.filter(post=post).filter(parent=comment),post)
         
     return data
+
     
 def gamepage(request,id):
     posts={}
@@ -34,14 +40,14 @@ def gamepage(request,id):
         for post in posts:
             
             commentFlag =Comment.objects.filter(post=post).filter(parent=None).exists()
-            if commentFlag : 
+            if commentFlag :
                 comment=Comment.objects.filter(post=post).filter(parent=None)
-                postData.append({post:getCommentData(comment,post)})
+                postData.append(postToStr(post)+getCommentData(comment,post))
             else:
-                postData.append({post:[]})
+                postData.append(postToStr(post))
     
      
-    getCommentData(comment,posts[0])
+    
     
     postForm = PostForm(request.POST or None)
     commentForm = CommentForm(request.POST or None)
@@ -66,7 +72,7 @@ def gamepage(request,id):
                 commentobj.parent = CommentForm.objects.get(id = int(commentForm.cleaned_data.get('commentid')))
             else:
                 commentobj.parent = ''
-    newData = str(postData)
+    newData = postData
     context = {
         'data':newData,
         'comment':comment,
