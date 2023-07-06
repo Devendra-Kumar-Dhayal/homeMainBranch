@@ -7,7 +7,7 @@ from .models import Post,Comment
 def gamePage(request):
      return render(request,'gamepage/index.html')
 def commentToStr(comment):
-    return "<h4>"+str(comment)+"</h4><br>"
+    return "<h4 class='comments'>"+str(comment)+"</h4><br>"
 def postToStr(post):
     return r'<div class="message"><h5>'+str(post.author)+':'+ str(post.title)+'</h5><p style=" margin: 3px;">'+str(post.content)+'</p><h6>post id  = '+str(post.id)+'</h6></div>'
 

@@ -20,8 +20,8 @@
         <form action='.' method="POST">
           {% csrf_token %}
           <div class="message1">
-            {{form.title}}
-            {{form.content}}
+            {{postForm.title}}
+            {{postForm.content}}
             <button id="submit-chat-message" type="submit">Post</button>
           </div>
 
@@ -39,15 +39,14 @@
               <button class="cta">Hot</button>
             </nav>
         </div>
-        <div class="post">
+        <div class="post" >
           <!-- posts  -->
 
 
 
-          {% for post in data %}
+          {% for post in data%}
           {{post|safe}}
-          {% endfor %}
-          
+          {%endfor%}
           
 
           
@@ -56,6 +55,7 @@
         </div>
       </div>
     </div>
-  </div>
   </body>
 </html>
+
+
