@@ -81,7 +81,9 @@ div {
   display: flex;
   align-items: center;
 }
-
+.comments{
+  color:white;
+}
 #cpost {
   transform: scale(1.7);
   margin-top: 11px;
@@ -219,4 +221,5 @@ h5,
 p {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
+  color :white;
 }
