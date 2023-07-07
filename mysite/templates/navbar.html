@@ -2,11 +2,11 @@
 <nav >
   <div class="nav-bar">
       <i class='bx bx-menu sidebarOpen' ></i>
-      <span class="logo navLogo"><a href="#">SteamCopy</a></span>
+      <span class="logo navLogo"><a href="#">GameWiki</a></span>
 
       <div class="menu">
           <div class="logo-toggle">
-              <span class="logo"><a href="#">SteamCopy</a></span>
+              <span class="logo"><a href="#">GameWiki</a></span>
               <i class='bx bx-x siderbarClose'></i>
           </div>
 
@@ -14,7 +14,7 @@
               <a href="#">Home</a>
               <a href="#">Latest Release</a>
               <a href="./admin/">Admin</a>
-              {% if request.user.is_authenticated == False %}
+              {% if request.user.is_authenticated == False %}   
               <!-- {{request.user.is_authenticated}} -->
               <button class="button" id="form-open">Login</button>
               {% endif %}
