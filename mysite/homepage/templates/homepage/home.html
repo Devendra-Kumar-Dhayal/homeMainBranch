@@ -5,7 +5,7 @@
 <section>
 </section>
 <section>
-    <div style="display: flex; align-items: center;width: max-content;flex-direction: row;margin-left: 10%;">
+    <div class="games">
         {% for game in games %}
         <a href="{% url 'gamepage' game.id %}">
         <img src="{{game.header_image}}"  >

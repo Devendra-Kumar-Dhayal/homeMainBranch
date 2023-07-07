@@ -41,36 +41,13 @@
         </div>
         <div class="post" >
           <!-- posts  -->
-
-
-
-          {% for post in data%}
+          {% for post in data %}
           {{post|safe}}
-          {%endfor%}
-          
           {% endfor %}
           
-          
-
-          {{data}}
-          {% if request.user.is_authenticated  %}
-          <form action='.' method="POST">
-            {% csrf_token %}
-            <div class="message">
-              {{form.title}}
-              {{form.content}}
-              <button id="submit-chat-message" type="submit">submit</button>
-            </div>
-
-          </form>
-          {% endif %}
-          {% if request.user.is_authenticated == False%}
-          <h1> Login to comment </h1>
-          {% endif %}
-
-
         </div>
       </div>
+      <a href="#" class="top">Back to Top &#8593;</a>
     </div>
   </body>
 </html>

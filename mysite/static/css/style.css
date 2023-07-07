@@ -461,6 +461,11 @@ body.dark .button {
   color: #00ffc8;
   transition: all 0.2s ease;
   border-bottom: 1.5px solid #09ffe1;
+  background: transparent;
+}
+
+#id_username{
+  font-family: 'Courier New', Courier, monospace;
 }
 .input_box input:focus {
   border-color: #09ffe1;
@@ -667,4 +672,12 @@ input:focus ~ #span {
 
 .hide-search-icon .cancel {
   display: block;
+}
+
+.games {
+  display: flex;
+  align-items: center;
+  width: 10%;
+  flex-direction: row;
+  margin-left: 10%;
 }

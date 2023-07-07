@@ -7,17 +7,23 @@ from .models import Post,Comment
 # Create your views here.
 def gamePage(request):
      return render(request,'gamepage/index.html')
+
 def commentToStr(comment):
-    return "<h4 class='comments'>"+str(comment)+"</h4><br>"
+    return "<div class='comments'><h4>"+str(comment)+"</h4>"+str("<button class='btnreply' onclick=showReplyForm("+str(comment.id)+")>Click To Reply= "+str(comment.id)+"</button></div>")
+
 def postToStr(post):
     return r'<div class="message"><h5>'+str(post.author)+':'+ str(post.title)+'</h5><p style=" margin: 3px;">'+str(post.content)+'</p><h6>post id  = '+str(post.id)+'</h6></div>'
 
 def formForComment(request,comment,post):
-    return '<form action="." method="POST">'+'<input type="hidden" name="csrfmiddlewaretoken" value="'+str(get_token(request))+'"><input type="text" name="content" placeholder="Your comment is ..." required="" id="id_content">'+'<input type="hidden" name="postid" class="some_class" id="some_id" value='+str(post.id)+'>'+'<input type="hidden" name="commentid" class="some_class" id="some_id" value='+str(comment.id)+'>'+'<button type="submit">reply</button>'+'</form>'
-
+    return '<div class="reply" id ='+str(comment.id)+'><form action="." method="POST">'+'<input type="hidden" name="csrfmiddlewaretoken" value="'+str(get_token(request))+'"><input class="commentipt" type="text" name="content" placeholder="Your comment is ..." required="" id="id_content">'+'<input type="hidden" name="postid" class="some_class" id="some_id" value='+str(post.id)+'>'+'<input type="hidden" name="commentid" class="some_class" id="some_id" value='+str(comment.id)+'>'+'<button class="commentbtn" type="submit" >reply</button>'+'</form></div>'
+    
+def formForPostComment(request,post):
+    return '<div class="postCommentForm" id ="post'+str(post.id)+'"><form action="." method="POST">'+'<input type="hidden" name="csrfmiddlewaretoken" value="'+str(get_token(request))+'"><input class="commentipt" type="text" name="content" placeholder="Your comment is ..." required="" id="id_content">'+'<input type="hidden" name="postid" class="some_class" id="some_id" value='+str(post.id)+'>'+'<input type="hidden" name="commentid" class="some_class" id="some_id" value="-1">'+'<button class="commentbtn" type="submit" >reply</button>'+'</form></div>'
+def buttonForFormPostComment(post):
+    return str("<button class='btnreply' onclick=showReplyPostForm('post"+str(post.id)+"')>Comment= "+str(post.id)+"</button>")
 def getCommentData(request,comments,post):
 
-    i =0
+
     data =""
     numComments= len(comments)
     if numComments==0:
@@ -32,13 +38,12 @@ def getCommentData(request,comments,post):
         
     return data
 
+def getPostsDdata(request,id):
     
-def gamepage(request,id):
-    posts={}
-    comment = []
     postData =[]
     game = GameInfo.objects.get(id=id)
     postsFlag = Post.objects.all().filter(game = game.id ).exists()
+
     if postsFlag:
         posts = Post.objects.all().filter(game = game.id )
         for post in posts:
@@ -46,17 +51,22 @@ def gamepage(request,id):
             commentFlag =Comment.objects.filter(post=post).filter(parent=None).exists()
             if commentFlag :
                 comment=Comment.objects.filter(post=post).filter(parent=None)
-                postData.append(postToStr(post)+getCommentData(request,comment,post))
+                postData.append(postToStr(post)+buttonForFormPostComment(post)+formForPostComment(request,post)+getCommentData(request,comment,post))
             else:
-                postData.append(postToStr(post))
+                
+                postData.append(postToStr(post)+buttonForFormPostComment(post)+formForPostComment(request,post))
+    return postData
+
+def gamepage(request,id):
     
-     
+    
+    
     
     
     postForm = PostForm(request.POST or None)
     commentForm = CommentForm(request.POST or None)
     
-    
+        
     if request.method=="POST":
         
         if postForm.is_valid():
@@ -79,12 +89,10 @@ def gamepage(request,id):
                 commentobj.parent = None
             commentobj.save()
 
-
-    newData = postData
+    game = GameInfo.objects.get(id=id)
+    newData = getPostsDdata(request,id)
     context = {
         'data':newData,
-        'comment':comment,
-        'posts':posts,
         'game':game,
         'postForm':postForm,
         'commentForm':commentForm

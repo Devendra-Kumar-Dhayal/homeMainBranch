@@ -9,11 +9,14 @@
 }
 
 body {
-  background: url("/static/gamepage/EarthRevolve.gif");
+  background-color: rgb(0, 0, 0);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   margin: 0px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  scroll-behavior: smooth;
 }
 
 @keyframes gradient {
@@ -29,7 +32,7 @@ body {
 }
 
 div {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(34, 34, 34, 0.986);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
@@ -43,10 +46,11 @@ div {
   width: 100%;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
+  background-color: rgb(27, 27, 27);
 }
 
 .leaderboard {
-  background: rgba(0, 0, 0, 0.356);
+  background: rgba(34, 34, 34, 0.986);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
@@ -57,17 +61,18 @@ div {
   transition: 0.2s ease;
 }
 
-.leaderboard:hover{
-  background: rgba(131, 130, 130, 0.356);
+.leaderboard:hover {
+  background: rgba(130, 131, 130, 0.356);
 }
 
 .feed {
   border: none;
-  background-color: none;
+  background-color: rgba(0, 0, 0, 0);
   height: 88%;
   width: 50%;
   margin-left: 1%;
   word-wrap: break-word;
+  box-shadow: rgba(95, 158, 160, 0);
 }
 
 .create,
@@ -81,8 +86,8 @@ div {
   display: flex;
   align-items: center;
 }
-.comments{
-  color:white;
+.comments {
+  color: white;
 }
 #cpost {
   transform: scale(1.7);
@@ -114,16 +119,19 @@ div {
 .post {
   height: 100%;
   margin-top: 15px;
+  background-color: #00a0fd00;
+  box-shadow: rgba(0, 0, 0, 0);
 }
 
 .message {
-  width: 96%;
+  background: rgba(44, 38, 38, 0.479);
+  width: 80%;
   height: fit-content;
   margin: 15px;
   padding: 5px;
   color: white;
   overflow-wrap: break-word;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #00ffc8;
 }
 
 h1 {
@@ -138,7 +146,6 @@ h1 {
   border: 1px solid;
   height: 2em;
   width: 5%;
-  font-family: Arial, Helvetica, sans-serif;
   color: black;
   outline-color: rgba(255, 255, 255, 0.1);
   margin-left: 18px;
@@ -152,7 +159,6 @@ nav {
 }
 
 .cta {
-  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   color: #ffffff;
   text-decoration: none;
@@ -195,7 +201,6 @@ nav {
 
 #submit-chat-message {
   height: 2.5rem;
-  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   color: #ffffff;
   text-decoration: none;
@@ -204,7 +209,7 @@ nav {
   border: 1px solid white;
   border-radius: 10px;
   cursor: pointer;
-  margin-left: 1%;
+  margin-left: 4%;
   transition: background-color 0.3s ease;
 }
 
@@ -214,12 +219,119 @@ nav {
   height: 5rem;
   padding: 5px;
   color: white;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid rgb(52, 192, 71);
 }
 
-h5,
+h3,
 p {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
-  color :white;
+  margin-left: 1%;
+  width: 98%;
 }
+
+input {
+  width: 50%;
+  text-align: center;
+  border-right: 1px solid #00ffc8;
+}
+
+#id_title {
+  margin-left: 2%;
+  width: 25%;
+  height: 50%;
+  border-radius: 25px;
+}
+
+#id_content {
+  height: 50%;
+  border-radius: 25px;
+  margin-left: 2.5%;
+}
+
+h4 {
+  color: #ffffff;
+}
+
+.comments {
+  background: rgba(44, 38, 38, 0.479);
+  width: 78%;
+  height: fit-content;
+  margin: 10px;
+  margin-left: 4%;
+  padding: 5px;
+  color: white;
+  overflow-wrap: break-word;
+  border-bottom: 1px solid #00ffc8;
+}
+
+.commentipt {
+  height: 50%;
+  border-radius: 25px;
+  margin-left: 2.5%;
+}
+
+.reply
+{
+  transform: scale(0);
+}
+
+.commentbtn {
+  height: 2.5rem;
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 9px 25px;
+  background: rgba(255, 255, 255, 0);
+  border: 1px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 4%;
+  transition: background-color 0.3s ease;
+}
+
+.top {
+  --offset: 50px; 
+  position: sticky;
+  bottom: 20px;      
+  margin-right:10px; 
+  place-self: end;
+  margin-top: calc(100vh + var(--offset));
+  text-decoration: none;
+  padding: 10px;
+  color: #fff;
+  background: #000;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.postCommentForm{
+  transform: scale(0);
+}
+
+.visible{
+  background: rgba(34, 34, 34, 0);
+  transform: scale(1);
+  margin-left: 4%;
+  margin-top: 1.7%;
+}
+
+.postComment{
+  background: rgba(34, 34, 34, 0);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.btnreply{
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  color: white
+}
+

@@ -82,7 +82,7 @@ body.addEventListener("click", e => {
 // searcch scroll functionality
 window.addEventListener('scroll', function() {
   var searchBox = document.querySelector('.searchBox');
-  if (window.pageYOffset > 650) {
+  if (window.pageYOffset > 50) {
     searchBox.classList.add('show-search-icon');
     searchBox.classList.remove('hide-search-icon');
   } else {
