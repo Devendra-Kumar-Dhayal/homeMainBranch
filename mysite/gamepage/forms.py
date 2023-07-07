@@ -24,17 +24,21 @@ class PostForm(forms.Form):
         return super(PostForm,self).clean(*args,**kwargs)
     
 class CommentForm(forms.Form):
-    pid =''
-    cid=''
+    
     content = forms.CharField(label='content',required = True,widget=forms.TextInput(attrs={"placeholder":"Your comment is ..."}))
-    postid = forms.IntegerField(widget=forms.HiddenInput(attrs={'class':'some_class','id':'some_id'}),initial=pid)
-    commentid = forms.IntegerField(widget=forms.HiddenInput(attrs={'class':'some_class','id':'some_id'}),required=False,initial=cid)
+    postid = forms.IntegerField(widget=forms.HiddenInput(attrs={'class':'some_class','id':'some_id'}))
+    commentid = forms.IntegerField(widget=forms.HiddenInput(attrs={'class':'some_class','id':'some_id'}),required=False)
     class Meta:
         fields=[
             'content', 
             'postid',
             'commentid',
         ]
+    def setCid(self,cid):
+        self.commentid=forms.IntegerField(widget=forms.HiddenInput(attrs={'class':'some_class','id':'some_id'}),required=False,initial=cid)
+    def setPid(self,pid):
+        self.postid = forms.IntegerField(widget=forms.HiddenInput(attrs={'class':'some_class','id':'some_id'}),initial=pid)
+        
     def post(self,request):
         form = CommentForm(request.POST)
         for field in form:
