@@ -47,12 +47,16 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
 
-    # user added
+    #chat application
+
+  
+    # pages added
 
     'homepage',
     'import_export',
     'gamepage',
-    'channels',
+    'accounts',
+    
 ]
 
 MIDDLEWARE = [
@@ -86,13 +90,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
-ASGI_APPLICATION = 'mysite.asgi.application'
 
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels.layers.InMemoryChannelLayer'
-    }
-}
 
 
 # Database
@@ -101,7 +99,7 @@ CHANNEL_LAYERS = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
+        'NAME': 'postgre1',
         'USER': 'postgres',
         'PASSWORD': 'admin@292',
         'HOST': 'localhost',
@@ -190,3 +188,6 @@ SOCIALACCOUNT_PROVIDERS = {
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

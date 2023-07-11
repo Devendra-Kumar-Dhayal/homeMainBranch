@@ -1,0 +1,222 @@
+:root {
+  --background: #4169e1;
+  --primary: #ffffff;
+  --accent-color: #009ffd;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background: url("/static/gamepage/EarthRevolve.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0px;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+div {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.container {
+  display: flex;
+  padding-top: 2%;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.leaderboard {
+  background: rgba(0, 0, 0, 0.356);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  margin-left: 4%;
+  height: 888px;
+  width: 30%;
+  transition: 0.2s ease;
+}
+
+.leaderboard:hover{
+  background: rgba(131, 130, 130, 0.356);
+}
+
+.feed {
+  border: none;
+  background-color: none;
+  height: 88%;
+  width: 50%;
+  margin-left: 1%;
+  word-wrap: break-word;
+}
+
+.create,
+.sort,
+.post {
+  height: 5em;
+  width: 100%;
+}
+
+.create {
+  display: flex;
+  align-items: center;
+}
+
+#cpost {
+  transform: scale(1.7);
+  margin-top: 11px;
+}
+
+.title {
+  margin-left: 25px;
+  height: 2.5em;
+  width: 85%;
+}
+
+.title:active {
+  border: 1px solid;
+}
+
+#spost {
+  margin-right: -75px;
+  margin-bottom: 10px;
+}
+
+.sort {
+  margin-top: 15px;
+  position: relative;
+  display: flex;
+  border-bottom: 1px solid white;
+}
+
+.post {
+  height: 100%;
+  margin-top: 15px;
+}
+
+.message {
+  width: 96%;
+  height: fit-content;
+  margin: 15px;
+  padding: 5px;
+  color: white;
+  overflow-wrap: break-word;
+  border-bottom: 1px solid white;
+}
+
+h1 {
+  font-size: 140%;
+  color: #ffffff;
+  margin-left: 10%;
+}
+
+.search {
+  background-size: 25px;
+  border-radius: 16px;
+  border: 1px solid;
+  height: 2em;
+  width: 5%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  outline-color: rgba(255, 255, 255, 0.1);
+  margin-left: 18px;
+  font-size: 20px;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+.cta {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 9px 25px;
+  background: rgba(255, 255, 255, 0);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta:hover {
+  background-color: rgba(255, 255, 255, 0.11);
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+.trend {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  .feed {
+    position: absolute;
+    margin-top: 5%;
+    left: 0;
+    width: 96%;
+  }
+
+  .leaderboard {
+    scale: 0;
+  }
+
+  .trending {
+    scale: 0;
+  }
+}
+
+#submit-chat-message {
+  height: 2.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 9px 25px;
+  background: rgba(255, 255, 255, 0);
+  border: 1px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 1%;
+  transition: background-color 0.3s ease;
+}
+
+.message1 {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  padding: 5px;
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+h5,
+p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}

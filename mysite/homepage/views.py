@@ -1,33 +1,17 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.contrib.auth import login, logout, authenticate,get_user_model
-from django.contrib import messages
-from django.contrib.auth.forms import UserChangeForm, AuthenticationForm
+from django.contrib.auth import login, logout, authenticate
 from .forms import UserRegisterForm ,UserLoginForm
 from .models import GameInfo
-from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.contrib.auth.views import PasswordResetView
 from django.contrib.messages.views import SuccessMessageMixin
-from django import forms
+
 
 def username_exists(username):
     return User.objects.filter(username=username).exists()
 
-
-
-def rest(request, pk):
-    return render(request, "new_page.html") 
-
-
-game = [
-    {'id' :'1', 'name':'game1'},
-    {'id' :'2', 'name':'game2'},
-    {'id' :'3', 'name':'game3'}
-]
 # Create your views here.
-@csrf_protect
 def home(request):
     
     form1 = UserLoginForm(request.POST or None )
@@ -46,8 +30,8 @@ def home(request):
             user = authenticate(username=username, password=password)
             # data = username
             login(request, user)
-
-            # return redirect('/')
+            return redirect('/')
+        
         elif str(form1.errors)!='<ul class="errorlist"><li>username<ul class="errorlist"><li>This field is required.</li></ul></li><li>password<ul class="errorlist"><li>This field is required.</li></ul></li></ul>':
             flag = True
         
@@ -64,23 +48,26 @@ def home(request):
             user.save()
             new_user = authenticate(username=user.username, password=password)
             login(request, new_user)
+            return redirect('/')
                 
-            # return redirect('/')
         else :
             sFlag=True
         print(form2.errors)
         print(flag)
         print(sFlag)
-            
+
+    games = GameInfo.objects.all().exclude(name='')# game objects 
+             
 
     context = {
         'form1':form1,
         'form2':form2,
-        'game':game,
         'retryLogin':flag,
         'retrySignup':sFlag,
+        'games':games,
     }
     return render(request, 'homepage/home.html',context)
+
 
 
 # def home(request):
@@ -100,3 +87,4 @@ class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
                       " If you don't receive an email, " \
                       "please make sure you've entered the address you registered with, and check your spam folder."
     success_url = reverse_lazy(home)
+

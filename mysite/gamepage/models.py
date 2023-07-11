@@ -1,17 +1,26 @@
-from django.contrib.auth.models import User
 from django.db import models
+from django.contrib.auth.models import User
+from homepage.models import GameInfo
+# Create your models here.
 
 
-class Room(models.Model):
-    name = models.CharField(max_length=255)
-    slug = models.SlugField(unique=True)
-
-
-class Message(models.Model):
-    room = models.ForeignKey(Room, related_name='messages', on_delete=models.CASCADE)
-    user = models.ForeignKey(User, related_name='messages', on_delete=models.CASCADE)
+    
+class Post(models.Model):
+    
+    title = models.CharField(max_length=255)
+    game = models.ForeignKey(GameInfo,on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    # date_posted = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
-    date_added = models.DateTimeField(auto_now_add=True)
 
-    class Meta:
-        ordering = ('date_added',)
+    def __str__(self):
+        return str(self.author)+' : '+self.title
+    
+class Comment(models.Model):
+    post = models.ForeignKey(Post,on_delete=models.CASCADE,blank=True,default='')
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    content  = models.TextField()
+    date_posted = models.DateTimeField(auto_now_add=True)
+    parent = models.ForeignKey('self',null=True,blank=True,on_delete=models.CASCADE,related_name='replies')
+    def __str__(self):
+        return str(self.author)+':'+str(self.content)    

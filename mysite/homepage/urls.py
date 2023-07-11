@@ -2,12 +2,14 @@ from django.urls import path,include
 from . import views
 from homepage.views import ResetPasswordView
 from django.contrib.auth import views as auth_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', views.home),
+    path('', views.home,name= 'home'),
     path('logout/',views.logout_view),
     path('recoverpassword/',ResetPasswordView.as_view()),
-    path('new_page.html/<str:pk>',views.rest),
+    
 
     path('password-reset-confirm/<uidb64>/<token>/',
         auth_views.PasswordResetConfirmView.as_view(template_name='homepage/password_reset_confirm.html'),
@@ -18,5 +20,6 @@ urlpatterns = [
          name='password_reset_complete'),
 
     path("", include("allauth.urls")),
+    
    
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
