@@ -20,6 +20,39 @@
         {% endfor %}
     </div>
 </section>
+
+<section>
+    <div class="container">
+    <div. class="row">
+      <table class="table">
+       <thead>
+       <tr>
+      
+      <th scope="col">id</th>
+      <th scope="col">name</th>
+      <th scope="col">Age Required</th>
+      <th scope="col"> Free  </th>
+      <th scope="col"> Controller Support</th>
+       </tr>
+       </thead>
+     <tbody>
+      <tr>
+      {% for data in data %}
+      <td>{{data.id}}</td>
+      <td>{{data.name}}</td>
+      <td>{{data.required_age}}</td>
+      <td>{{data.is_free}}</td>
+      <td>{{data.controller_suppoprt}}</td>
+      </tr>
+     {% endfor %}
+      
+     </tbody>
+     </table>
+</div>
+</div>
+</section>
+
+
         
 
 

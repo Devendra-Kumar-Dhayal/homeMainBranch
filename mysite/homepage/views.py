@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.contrib.auth.views import PasswordResetView
 from django.contrib.messages.views import SuccessMessageMixin
+from django.db.models import Q
 
 
 def username_exists(username):
@@ -13,6 +14,14 @@ def username_exists(username):
 
 # Create your views here.
 def home(request):
+
+    if 'q' in request.GET:
+        q=request.GET['q']
+        multiple_q = Q(Q(name__icontains=q))
+        data = GameInfo.objects.filter(multiple_q)
+    else:
+        data= GameInfo.objects.all()
+        
     
     form1 = UserLoginForm(request.POST or None )
     form2 = UserRegisterForm(request.POST or None)
@@ -65,6 +74,7 @@ def home(request):
         'retryLogin':flag,
         'retrySignup':sFlag,
         'games':games,
+        'data':data,
     }
     return render(request, 'homepage/home.html',context)
 
