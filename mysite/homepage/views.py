@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from .forms import UserRegisterForm ,UserLoginForm
 from .models import GameInfo
+from .models import GameCategory
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.contrib.auth.views import PasswordResetView
@@ -17,8 +18,10 @@ def home(request):
 
     if 'q' in request.GET:
         q=request.GET['q']
-        multiple_q = Q(Q(name__icontains=q))
+        multiple_q = Q(Q(name__icontains=q)| Q(short_description__icontains=q))
+        
         data = GameInfo.objects.filter(multiple_q)
+        
     else:
         data= GameInfo.objects.all()
         
@@ -75,6 +78,7 @@ def home(request):
         'retrySignup':sFlag,
         'games':games,
         'data':data,
+        
     }
     return render(request, 'homepage/home.html',context)
 
