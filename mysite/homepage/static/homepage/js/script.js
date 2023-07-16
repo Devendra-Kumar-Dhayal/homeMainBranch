@@ -1,7 +1,7 @@
 
 // section
-let next = document.getElementById('next')
-let prev = document.getElementById('prev')
+let next = document.getElementById('nextButton')
+let prev = document.getElementById('prevButton')
 
 next.addEventListener('click', function(){
     let items = document.querySelectorAll('.item')
