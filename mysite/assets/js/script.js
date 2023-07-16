@@ -79,3 +79,19 @@ body.addEventListener("click", e => {
     nav.classList.remove("active");
   }
 });
+// searcch scroll functionality
+window.addEventListener('scroll', function() {
+  var searchBox = document.querySelector('.searchBox');
+  if (window.pageYOffset > 50) {
+    searchBox.classList.add('show-search-icon');
+    searchBox.classList.remove('hide-search-icon');
+  } else {
+    searchBox.classList.remove('show-search-icon');
+    searchBox.classList.add('hide-search-icon');
+  }
+});
+// Hide the search icon on page load
+window.addEventListener('DOMContentLoaded', function() {
+  var searchBox = document.querySelector('.searchBox');
+  searchBox.classList.add('hide-search-icon');
+});

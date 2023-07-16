@@ -62,16 +62,18 @@ class GameInfo(models.Model):
 		return self.name
 
 class GameCategory(models.Model):	
+	auto = models.AutoField(primary_key=True)
 	game_id = models.ForeignKey(GameInfo, on_delete=models.CASCADE)
-	id = models.IntegerField(primary_key=True)
+	id = models.IntegerField()
 	description = models.CharField(max_length=100, default = "demo")
 
 	def __str__(self):
 		return self.description
 
 class GameGenre(models.Model):
+	auto =models.AutoField(primary_key=True)
 	game_id = models.ForeignKey(GameInfo, on_delete=models.CASCADE)
-	id = models.IntegerField(primary_key=True)
+	id = models.IntegerField()
 	description = models.CharField(max_length=100, default = "demo")
 
 	def __str__(self):

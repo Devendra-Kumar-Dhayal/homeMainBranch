@@ -20,7 +20,7 @@ class GameAdmin(ImportExportModelAdmin):
 class GameCategoryResource(resources.ModelResource):
 	class Meta:
 		model = GameCategory	
-		import_id_fields = ['id']
+		import_id_fields = ['auto']
 
 class GameCategoryAdmin(ImportExportModelAdmin):
 	resource_class = GameCategoryResource
@@ -30,7 +30,7 @@ class GameCategoryAdmin(ImportExportModelAdmin):
 class GameGenreResource(resources.ModelResource):
 	class Meta:
 		model = GameGenre	
-		import_id_fields = ['id']
+		import_id_fields = ['auto']
 
 class GameGenreAdmin(ImportExportModelAdmin):
 	resource_class = GameGenreResource
