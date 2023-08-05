@@ -1,11 +1,14 @@
+body{
+  background-color: #1c1212;
+}
 .container {
-  background: #a58b8b;
-  width: 840px;
-  height: 550px;
+  background: #192619;
+  width: 900px;
+  height: 600px;
   margin: 0 auto;
   position: relative;
-  margin-top: 10%;
-  box-shadow: 2px 4px 20px rgba(119, 119, 119, 0.5);
+  margin-top: 7%;
+  border-radius: 15px;
   display: flex;
 }
 
@@ -17,30 +20,30 @@
   width: 8%;
   height: 110%;
   background-color: aquamarine;
-  box-shadow: 3px 3px 10px rgba(119, 119, 119, 0.5);
   border: .2rem;
+  border-radius: 10px;
 }
 
 .sidebar i {
   color: #150f0f;
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   display: block;
   padding: 60px 20px;
   cursor: pointer;
 }
 
 .sidebar i:first-child {
-  margin-top: 7px;
+  margin-top: 10px;
 }
 
 .sidebar i:active {
-  color: aquamarine;
+  color: white;
 }
 
 .content {
-  padding: 20px;
-  width: 60%;
-  margin-left: 27%;
+  padding: 30px;
+  width: 65%;
+  margin-left: 22%;
 }
 
 .tab-content {
@@ -52,28 +55,35 @@
 }
 
 .container h2 {
-  margin-top: 0;
-  font-size: 1.5rem;
+  margin-top: 10px;
+  font-size: 1.8rem;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #27f245;
 }
 .container h3{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #27f245;
 }
 
-.container input,
-.container select {
+
+
+.container input, .container select {
   margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-    box-sizing: border-box
+  background-color: black;
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  color: #27f245;
 }
 
 .container button {
   padding: 10px 20px;
-  background-color: aquamarine;
-  color: #150f0f;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: #27f245;
+  border-radius: 16px;
+  margin-top: 10px;
   border: none;
   cursor: pointer;
 }
@@ -93,7 +103,7 @@
 /* Media Queries */
 @media screen and (max-width: 1200px) {
   .container {
-    width: 90%;
+    width: 65%;
     height: auto;
     margin-top: 5%;
     flex-direction: column;
@@ -115,8 +125,8 @@
   }
 
   .content {
-    width: 100%;
-    margin-left: 0;
+    width: 80%;
+    margin-left: 6%;
   }
 }
 
@@ -144,9 +154,9 @@
   }
 
   .content {
-    width: 100%;
-    margin-left: 0;
-  }
+    width: 80%;
+    margin-left: 20px;
+}
 
   .container input,
   .container select {
@@ -173,10 +183,9 @@
   }
 
   .content {
-    width: 100%;
-    margin-left: 0;
-  }
-
+    width: 80%;
+    margin-left: 15px;
+}
   .container input,
   .container select {
     font-size: 0.8rem;
