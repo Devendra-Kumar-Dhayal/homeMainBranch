@@ -9,7 +9,7 @@ if(formOpenBtn!= null){
 
   // home.classList.add("show")
   formOpenBtn.addEventListener("click", () => home.classList.add("show"));
-formCloseBtn.addEventListener("click", () => home.classList.remove("show"));
+  formCloseBtn.addEventListener("click", () => home.classList.remove("show"));
 }
 
 
@@ -79,6 +79,8 @@ body.addEventListener("click", e => {
     nav.classList.remove("active");
   }
 });
+
+
 // searcch scroll functionality
 window.addEventListener('scroll', function() {
   var searchBox = document.querySelector('.searchBox');
